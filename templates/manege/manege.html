@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理者用映画一覧</title>
+</head>
+<body>
+<ul>
+    {{range .data}}
+    <li>{{.Title}}<button onclick="location.href='/manege/{{.ID}}'">Edit</button>　<button onclick="location.href='/manege/delete/{{.ID}}'">Delete</button></li>
+
+    {{end}}
+</ul>
+</body>
+</html>

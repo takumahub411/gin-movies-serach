@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>映画一覧</title>
+</head>
+<body>
+<h1>ようこそ {{.name}} さん !</h1>
+<h3><a href="/mypage">mypage</a></h3>
+
+
+{{range .data}}
+<li>{{.Title}}<button onclick="location.href='/movies/{{.ID}}'">Detail</button></li>
+
+{{end}}
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+</head>
+<body>
+{{if .error}}
+<p>{{.error}}</p>
+{{else}}
+<p>以下で更新します。よろしいですか？</p>
+{{end}}
+<form action="" method="post">
+    <input type="hidden" name="id" value="{{.Id}}">
+    <label for="title">Title</label>
+    <input type="text" id="title" value="{{.Title}}" name="title">
+    <label for="year">Year</label>
+    <input type="text" id="year" value="{{.Year}}" name="year">
+    <label for="cast">Cast</label>
+    <textarea name="cast" id="cast" cols="30" rows="10">{{.Cast}}</textarea>
+    <label for="genre">Genre</label>
+    <input type="text" id="genre" value="{{.Genre}}" name="genre">
+    <label for="extract">Extract</label>
+    <textarea name="extract" id="extract" cols="30" rows="10">{{.Extract}}</textarea>
+    <button type="submit">Edit</button>
+</form>
+</body>
+</html>

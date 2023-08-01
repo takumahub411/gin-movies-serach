@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>my page</title>
+</head>
+<body>
+
+    {{ range .data }}
+
+    <h3>Name</h3>
+    <p>{{.Username}}</p>
+    <h3>Mail address</h3>
+    <p>{{.Email}}</p>
+    <h3>Password change</h3>
+    <button onclick="location.href='/passwordChange'">Change</button>
+    <h3>icon</h3>
+    <img src="/images/{{.Photo}}" alt="" width="150" height="150">
+    {{end}}
+
+</body>
+</html>

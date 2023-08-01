@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新規登録</title>
+</head>
+<body>
+
+{{/* コメント*/}}
+
+<ul>
+    {{if .error}}
+    <h5>{{.error}}</h5>
+    {{end}}
+    {{if .valiError}}
+        {{range .valiError}}
+    <li>{{.}}</li>
+        {{end}}
+    {{end}}
+
+</ul>
+
+<form action="/signup" method="post" enctype="multipart/form-data">
+    <label for="name">アカウント名</label>
+    <input type="text" name="name" id="name"><br>
+    <label for="email">メールアドレス</label>
+    <input type="email" name="email" id="email"><br>
+    <label for="password">パスワード</label>
+    <input type="password" name="password" id="password"><br>
+    <label for="passwordConf">パスワード確認</label>
+    <input type="password" name="passwordConf" id="passwordConf"><br>
+    <label for="image">プロフィール写真</label>
+    <input type="file" name="image" id="image"><br>
+    <button type="submit">登録</button>
+</form>
+
+</body>
+</html>

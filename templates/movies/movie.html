@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/movies">back</a>
+
+{{range .data}}
+{{$id := .ID}}
+<h2>Title</h2>
+<p>{{.Title}}</p>
+<h2>Year</h2>
+<p>{{.Year}}</p>
+<h2>Href</h2>
+<p>{{.Href}}</p>
+<h2>Extract</h2>
+<p>{{.Extract}}</p>
+<h2>Cast</h2>
+<p>{{.Cast}}</p>
+<h2>Genre</h2>
+<p>{{.Genre}}</p>
+<h2>Thumbnail</h2>
+<p><img src="{{.Thumbnail}}" alt="" width="{{.ThumbnailWidth}}" height="{{.ThumbnailHeight}}"></p>
+{{end}}
+
+<!--post review-->
+{{ if .error }}
+<span>投稿エラーです。入力内容を確認してください。</span>
+<br><br>
+{{ end }}
+{{range .data}}
+<form method="POST" action="/movies/{{.ID}}">
+    {{ end }}
+    <div>
+        <label for="input-name">レビュータイトル</label>
+        <input type="text" name="title" id="input-name">
+    </div>
+    <div>
+        <label for="input-body">本文</label>
+        <textarea name="content" id="input-body" cols="60" rows="5"></textarea>
+    </div>
+    <div>
+        <label for="star">★</label>
+        <select name="star" id="star">
+            <option value="">-</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <input type="submit" value="投稿する">
+</form>
+</body>
+</html>
